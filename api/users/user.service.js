@@ -3,20 +3,23 @@ const pool = require("../../config/database");
 module.exports = {
     create: (data, callBack) => {
         pool.query(
-            `insert into tbl_profile_setup(name, email, gender, password, number)
-            values(?,?,?,?,?)`,
+            `insert into tbl_profile_setup(Profile_FirstName, Profile_LastName, Profile_Mobile, Profile_Email, Profile_Image, Profile_Status)
+            values(?,?,?,?,?,?)`,
             [
-                data.name,
+                data.first_name,
+                data.last_name,
+                data.mobile,
                 data.email,
-                data.gender,
-                data.password,
-                data.number
+                data.image,
+                data.status
+
             ],
             (error, results, fields) => {
                 if (error) {
                     return callBack(error); 
                 }
                 return callBack(null, results)
+
             }
         );
     },
