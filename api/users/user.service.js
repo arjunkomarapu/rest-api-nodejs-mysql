@@ -25,7 +25,7 @@ module.exports = {
     },
     getUsers: callBack => {
         pool.query(
-            `select id, name, email, gender, number from tbl_profile_setup`,
+            `select id, name, phone from tbl_sampledata`,
             [],
             (error, results, fields) => {
                 if (error) {
